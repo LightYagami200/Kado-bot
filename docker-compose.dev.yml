@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+  nginx:
+    restart: always
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./nginx
+    ports:
+      - '80:80'
+  mongo:
+    image: mongo
+    environment: 
+      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
+      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_DATABASE: admin
+    ports:
+      - "27017:27017"
+    volumes: 
+      - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo/data:/data/db
+  redis:
+    image: redis
+  api:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./server
+    volumes: 
+      - /usr/src/app/node_modules
+      - ./server:/usr/src/app
+    environment: 
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
+  # client:
+  #   build: 
+  #     dockerfile: Dockerfile.dev
+  #     context: ./client
+  #   volumes: 
+  #     - /usr/src/app/node_modules
+  #     - ./client:/usr/src/app

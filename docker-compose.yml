@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  nginx:
+    restart: always
+    build: 
+      dockerfile: Dockerfile
+      context: ./nginx
+    ports:
+      - 80
+  redis:
+    image: redis
+  api:
+    build: 
+      dockerfile: Dockerfile
+      context: ./server
+    environment: 
+      - DISCORD_BOT_TOKEN=${DISCORD_BOT_TOKEN}
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+      - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
+  # client:
+  #   build: 
+  #     dockerfile: Dockerfile
+  #     context: ./client

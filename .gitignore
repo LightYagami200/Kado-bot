@@ -1,0 +1,7 @@
+node_modules
+Dockerfile.dev
+coverage
+build
+dev.sh
+.env
+mongo/data/

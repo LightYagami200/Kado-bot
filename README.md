@@ -1,1 +1,1 @@
-# Kado-bot
+# Kado Bot
