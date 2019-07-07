@@ -97,10 +97,9 @@ mongoose
     //->Settings provider
     client
       .setProvider(
-        MongoClient.connect(
-          'mongodb://kado:ewV46AwbqDWxdTrM@mongo:27017/kado-bot',
-          { useNewUrlParser: true }
-        ).then(client => new MongoDBProvider(client, 'abot'))
+        MongoClient.connect(keys.mongoConnectionString, {
+          useNewUrlParser: true
+        }).then(client => new MongoDBProvider(client, 'abot'))
       )
       .catch(console.error);
     //->Registering commands
