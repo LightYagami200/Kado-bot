@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
       context: ./nginx
     ports:
-      - 80
+      - 80:80
   redis:
     image: redis
   api:

@@ -12,7 +12,10 @@ import bg from './img/bg.png';
 const styles = createStyles({
   app: {
     backgroundImage: `url(${bg})`,
-    height: '100vh'
+    height: '100vh',
+    backgroundSize: 'cover',
+    overflowX: 'hidden',
+    overflowY: 'hidden'
   },
   container: {
     height: '100vh'
