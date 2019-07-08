@@ -246,14 +246,14 @@ async function endDuel(msg, timeEnded = false) {
     );
 
     //Calculating League Points
-    const winLP = 5;
-    const loseLP = 5;
+    const RawLP = Math.round(profileLose.leaguePoints / 20);
+    const LP = RawLP > 0 ? RawLP : 0;
 
     //Making changes
     profileWin.addExp(winExp);
     profileLose.addExp(loseExp);
-    profileWin.addLeaguePoints(winLP);
-    profileLose.deductLeaguePoints(loseLP);
+    profileWin.addLeaguePoints(LP);
+    profileLose.deductLeaguePoints(LP);
   }
 
   //Deleting Duel Document
