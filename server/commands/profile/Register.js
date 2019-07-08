@@ -54,7 +54,7 @@ module.exports = class RegisterCommand extends Command {
       level: 1,
       badges: [],
       equippedBadge: '',
-      coins: 1000,
+      coins: 20,
       cardPacks: [],
       wins: 0,
       loses: 0,
