@@ -30,12 +30,14 @@ module.exports = class LeaderboardsCommand extends Command {
     let leaderboardStr = '';
 
     profiles.forEach((profile, i) => {
-      leaderboardStr += `${i === 0 ? '**' : ''} ${i + 1}) ${
+      leaderboardStr += `${
         this.client.users.get(profile.memberID)
           ? this.client.users.get(profile.memberID).username
           : '[Left Kādo]'
       } - ${getLeagueName(profile.league)} (${profile.leaguePoints -
-        profile.league * 100}) ${i === 0 ? '👑' : ''} ${i === 0 ? '**' : ''}\n`;
+        profile.league * 100}) ${
+        i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''
+      }\n`;
     });
 
     msg.embed(
