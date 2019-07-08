@@ -1,6 +1,7 @@
 FROM node:alpine as builder
 WORKDIR /usr/src/app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+COPY . ./
+RUN npm install react-scripts@3.0.1 -g --silent
 RUN npm install --production --silent && mv node_modules ../
 RUN npm run build
 

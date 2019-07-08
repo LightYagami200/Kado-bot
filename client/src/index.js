@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { createMuiTheme } from '@material-ui/core';
 import App from './App';
 import { ThemeProvider } from '@material-ui/styles';
-import '../res/css/normalize.css';
+import './css/normalize.css';
 
 //Theme
 const theme = createMuiTheme({

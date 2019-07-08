@@ -7,7 +7,7 @@ import {
   withStyles,
   Grid
 } from '@material-ui/core';
-import bg from '../res/img/bg.png';
+import bg from './img/bg.png';
 
 const styles = createStyles({
   app: {
