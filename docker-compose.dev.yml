@@ -11,8 +11,8 @@ services:
   mongo:
     image: mongo
     environment: 
-      MONGO_INITDB_ROOT_USERNAME: ${MONGO_ROOT_USERNAME}
-      MONGO_INITDB_ROOT_PASSWORD: ${MONGO_ROOT_PASSWORD}
+      MONGO_INITDB_ROOT_USERNAME: kado
+      MONGO_INITDB_ROOT_PASSWORD: ewV46AwbqDWxdTrM
       MONGO_INITDB_DATABASE: admin
     ports:
       - "27017:27017"
@@ -33,10 +33,10 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
-  # client:
-  #   build: 
-  #     dockerfile: Dockerfile.dev
-  #     context: ./client
-  #   volumes: 
-  #     - /usr/src/app/node_modules
-  #     - ./client:/usr/src/app
+  client:
+    build: 
+      dockerfile: Dockerfile.dev
+      context: ./client
+    volumes: 
+      - /usr/src/app/node_modules
+      - ./client:/usr/src/app

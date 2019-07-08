@@ -1,21 +1,75 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  Card,
+  CardContent,
+  Typography,
+  createStyles,
+  withStyles,
+  Grid
+} from '@material-ui/core';
+import bg from '../res/img/bg.png';
+
+const styles = createStyles({
+  app: {
+    backgroundImage: `url(${bg})`,
+    height: '100vh'
+  },
+  container: {
+    height: '100vh'
+  },
+  inviteMsg: {
+    marginTop: 20
+  },
+  inviteLink: {
+    color: 'inherit',
+    textDecoration: 'none'
+  }
+});
 
 class App extends Component {
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div className={classes.app}>
+        <Grid
+          container
+          spacing={3}
+          direction="row"
+          justify="center"
+          alignItems="center"
+          className={classes.container}
+        >
+          <Grid item xs={10} md={6} lg={4}>
+            <Card>
+              <CardContent>
+                <Typography variant="h5" gutterBottom>
+                  Welcome!
+                </Typography>
+                <Typography variant="body2">
+                  It seems you've stumbled upon Kādo Bot but unfortunately, Kādo
+                  Bot is currently under Beta testing and limited to Aldovia
+                  server. But hey! You can just join Aldovia and test out Kādo
+                  Bot right now!
+                </Typography>
+                <Typography className={classes.inviteMsg} color="textSecondary">
+                  Cya in Aldovia:{' '}
+                  <b>
+                    <a
+                      className={classes.inviteLink}
+                      href="https://discord.gg/JGsgBsN"
+                    >
+                      https://discord.gg/JGsgBsN
+                    </a>
+                  </b>
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
       </div>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);

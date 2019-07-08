@@ -19,7 +19,7 @@ services:
       - REDIS_HOST=redis
       - REDIS_PORT=6379
       - MONGO_CONNECTION_STRING=${MONGO_CONNECTION_STRING}
-  # client:
-  #   build: 
-  #     dockerfile: Dockerfile
-  #     context: ./client
+  client:
+    build: 
+      dockerfile: Dockerfile
+      context: ./client
