@@ -246,7 +246,7 @@ async function endDuel(msg, timeEnded = false) {
     );
 
     //Calculating League Points
-    const RawLP = Math.round(profileLose.leaguePoints / 20);
+    const RawLP = Math.round(profileWin.league);
     const LP = RawLP > 0 ? RawLP : 0;
 
     //Making changes

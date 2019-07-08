@@ -141,7 +141,7 @@ module.exports = client => {
 
     const oldLeague = this.league;
 
-    this.league = Math.floor(this.leaguePoints / 100);
+    this.league = Math.ceil(this.leaguePoints / 100);
 
     await this.save();
 
