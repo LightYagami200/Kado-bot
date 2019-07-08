@@ -18,7 +18,7 @@ const keys = require('./config/keys');
 //CONSTANTS
 //==========================
 const client = new CommandoClient({
-    commandPrefix: '!',
+    commandPrefix: '$',
     owner: [
       '338334949331697664' //Light Yagami
     ],
@@ -127,7 +127,7 @@ mongoose
 
     //->When Ready
     client.on('ready', () =>
-      client.user.setActivity('with Cards | -help', { type: 'PLAYING' })
+      client.user.setActivity('with Cards | $help', { type: 'PLAYING' })
     );
     //==========================
   });
