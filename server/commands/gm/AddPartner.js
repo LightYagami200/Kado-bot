@@ -25,6 +25,11 @@ module.exports = class AddPartnerCommand extends Command {
           prompt:
             "What's the ID of the guild that you're partnering with? (18 Digits ID)",
           type: 'string'
+        },
+        {
+          key: 'inviteLink',
+          prompt: "What's the invite Link to that guild?",
+          type: 'string'
         }
       ]
     });
@@ -36,7 +41,7 @@ module.exports = class AddPartnerCommand extends Command {
     else return true;
   }
 
-  async run(msg, { guildID }) {
+  async run(msg, { guildID, inviteLink }) {
     if (guildID === '556442896719544320' || guildID === '582529974754476042')
       return msg.embed(
         new RichEmbed()
@@ -69,7 +74,8 @@ module.exports = class AddPartnerCommand extends Command {
 
     //Partnering
     await new Partner({
-      guildID
+      guildID,
+      inviteLink
     }).save();
 
     msg.embed(

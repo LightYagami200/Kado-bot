@@ -7,6 +7,7 @@ const partnerSchema = new Schema({
     type: String,
     unique: true
   },
+  inviteLink: String,
   partneredOn: {
     type: Date,
     default: Date.now
