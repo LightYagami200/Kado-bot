@@ -115,7 +115,7 @@ module.exports = client => {
       .exec();
 
     partners.forEach(partner => {
-      if (client.guild.get(partner.guildID).members.get(this.memberID))
+      if (client.guilds.get(partner.guildID).members.get(this.memberID))
         totalCoins += 5;
     });
 
