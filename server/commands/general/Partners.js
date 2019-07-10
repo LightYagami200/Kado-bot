@@ -27,8 +27,12 @@ module.exports = class PartnersCommand extends Command {
 
     if (partners.length === 0) guidsStr = '[No Partners Yet]';
 
-    partners.forEach((partner, i) => {
-      guidsStr += `${i + 1}) ${this.client.guilds.get(partner.guildID)}\n`;
+    partners.forEach(partner => {
+      guidsStr += `${
+        this.client.guilds.get(partner.guildID) !== undefined
+          ? this.client.guilds.get(partner.guildID) + '\n'
+          : ''
+      }`;
     });
 
     msg.embed(
@@ -42,7 +46,7 @@ module.exports = class PartnersCommand extends Command {
       new RichEmbed()
         .setTitle('Partner')
         .setDescription(guidsStr)
-        .setFooter('Use "join <id>" to join a server')
+        .setFooter('Use "join <server name>" to join a server')
         .setColor('#2196f3')
     );
   }
