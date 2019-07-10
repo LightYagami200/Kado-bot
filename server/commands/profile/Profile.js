@@ -41,12 +41,15 @@ module.exports = class ProfileCommand extends Command {
     }).exec();
 
     if (
-      _.includes(require('../../config/gameMasters'), msg.member.id) &&
+      _.includes(
+        require('../../config/gameMasters'),
+        player ? player.id : msg.member.id
+      ) &&
       process.env.NODE_ENV === 'production'
     )
       return msg.embed(
         new RichEmbed()
-          .setTitle(`${msg.member.displayName}`)
+          .setTitle(`${player ? player.displayName : msg.member.displayName}`)
           .setDescription('Game Master')
           .setColor('#2196f3')
       );
