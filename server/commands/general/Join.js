@@ -29,6 +29,16 @@ module.exports = class JoinCommand extends Command {
   async run(msg, { name }) {
     const guild = this.client.guilds.find(guild => guild.name === name);
 
+    if (!guild)
+      return msg.embed(
+        new RichEmbed()
+          .setTitle('Guild Not Found')
+          .setDescription(
+            "The partner you're trying to join doesn't exist. Please double check your spelling and capitalization"
+          )
+          .setColor('#f44336')
+      );
+
     const partner = await Partner.findOne({ guildID: guild.id }).exec();
 
     if (!partner)
