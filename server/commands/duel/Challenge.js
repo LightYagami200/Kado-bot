@@ -218,8 +218,8 @@ module.exports = class ChallengeCommand extends Command {
         amount,
         player1ID: msg.member.id,
         player2ID: player.id,
-        player1Health: profile.level * 500,
-        player2Health: opponentProfile.level * 500,
+        player1Health: profile.level * 200 + 300,
+        player2Health: opponentProfile.level * 200 + 300,
         currentTurn: player.id,
         currentPhase: 'Drawing',
         player1Deck: player1Deck.mainDeck,
@@ -253,8 +253,14 @@ module.exports = class ChallengeCommand extends Command {
         .setTitle(`${msg.member.displayName} ⚔️ ${player.displayName}`)
         .setDescription('THE DUEL BEGINS!')
         .addField('Bet Amount', amount > 0 ? amount : 'No bet')
-        .addField(`${msg.member.displayName}'s Health`, profile.level * 500)
-        .addField(`${player.displayName}'s Health`, opponentProfile.level * 500)
+        .addField(
+          `${msg.member.displayName}'s Health`,
+          profile.level * 200 + 300
+        )
+        .addField(
+          `${player.displayName}'s Health`,
+          opponentProfile.level * 200 + 300
+        )
         .setColor('#2196f3')
         .setFooter(`${amount === 0 ? 'Friendly Duel' : 'Competetive Duel'}`)
     );
