@@ -137,11 +137,9 @@ module.exports = client => {
 
     this.leaguePoints += lp;
 
-    if (this.leaguePoints > 1000) this.leaguePoints = 1000;
-
     const oldLeague = this.league;
 
-    this.league = Math.ceil(this.leaguePoints / 100);
+    this.league = Math.min(10, Math.floor(this.leaguePoints / 100));
 
     await this.save();
 

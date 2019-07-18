@@ -34,8 +34,7 @@ module.exports = class LeaderboardsCommand extends Command {
         this.client.users.get(profile.memberID)
           ? this.client.users.get(profile.memberID).username
           : '[Left Kādo]'
-      } - ${getLeagueName(profile.league)} (${profile.leaguePoints -
-        profile.league * 100}) ${
+      } - ${getLeagueName(profile.league)} (${profile.leaguePoints} LP) ${
         i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : ''
       }\n`;
     });
