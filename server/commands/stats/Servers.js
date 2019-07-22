@@ -27,7 +27,7 @@ module.exports = class RedisCommand extends Command {
       new RichEmbed()
         .setTitle('Servers')
         .setDescription(
-          `Aldovia bot is in **${this.client.guilds.size}** Servers`
+          `Kado bot is in **${this.client.guilds.size}** Servers`
         )
         .setColor('#2196f3')
     );
