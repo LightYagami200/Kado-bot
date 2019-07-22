@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AbdulSammad200/Kado-bot.git"
+    "url": "git+https://github.com/LightYagami200/Kado-bot.git"
   },
   "keywords": [
     "kado",
@@ -17,12 +17,12 @@
     "anime",
     "duel"
   ],
-  "author": "Abdul Sammad",
+  "author": "Light Yagami",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/AbdulSammad200/Kado-bot/issues"
+    "url": "https://github.com/LightYagami200/Kado-bot/issues"
   },
-  "homepage": "https://github.com/AbdulSammad200/Kado-bot#readme",
+  "homepage": "https://github.com/LightYagami200/Kado-bot#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
     "body-parser": "^1.19.0",
