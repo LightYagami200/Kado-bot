@@ -1,11 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
-const { performance } = require('perf_hooks');
-const client = require('redis').createClient({
-  host: process.env.REDIS_HOST,
-  port: process.env.REDIS_PORT
-});
 
 //Init
 
