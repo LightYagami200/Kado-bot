@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const { performance } = require('perf_hooks');
 const client = require('redis').createClient({
   host: process.env.REDIS_HOST,
@@ -47,7 +47,7 @@ module.exports = class RedisCommand extends Command {
     const deleteTime = deleteTimeOut - deleteTimeBefore;
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Redis Stats')
         .setDescription(
           `SET Time: ${setTime.toFixed(3)}ms\nGET Time: ${getTime.toFixed(

@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const gameMasters = require('../../config/gameMasters');
@@ -39,7 +39,7 @@ module.exports = class RemovePartnerCommand extends Command {
   async run(msg, { guildID }) {
     if (guildID === '556442896719544320' || guildID === '582529974754476042')
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Can't remove")
           .setDescription("Kādo bot can't remove it's own parent server")
           .setColor('#f44336')
@@ -49,7 +49,7 @@ module.exports = class RemovePartnerCommand extends Command {
 
     if (!partner)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Not a partner')
           .setDescription(
             "The server you're trying to remove isn't one of the partners"
@@ -61,7 +61,7 @@ module.exports = class RemovePartnerCommand extends Command {
     await Partner.deleteOne({ guildID }).exec();
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Partner Removed')
         .setDescription(`Server was removed from partners`)
         .setColor('#2196f3')

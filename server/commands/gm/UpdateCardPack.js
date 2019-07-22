@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const { getCardPackEmbedByName } = require('../../helpers/cards');
@@ -53,7 +53,7 @@ module.exports = class UpdateCardPackCommand extends Command {
 
     if (!cardPack)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Card pack not found')
           .setDescription(
             'The card pack that you are trying to update does not exist'
@@ -63,7 +63,7 @@ module.exports = class UpdateCardPackCommand extends Command {
 
     if (typeof cardPack[key] === 'undefined')
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Invalid Field')
           .setDescription(
             'The field that you are trying to update does not exist'

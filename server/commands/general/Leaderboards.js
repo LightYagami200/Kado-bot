@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const { getLeagueName } = require('../../helpers/league');
 
@@ -40,7 +40,7 @@ module.exports = class LeaderboardsCommand extends Command {
     });
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Leaderboards')
         .setDescription(leaderboardStr)
         .setColor('#2196f3')

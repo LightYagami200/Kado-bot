@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const { getCharacterEmbedByName } = require('../../helpers/cards');
@@ -80,7 +80,7 @@ module.exports = class GetCardsCommand extends Command {
 
         if (!characters)
           return msg.embed(
-            new RichEmbed()
+            new MessageEmbed()
               .setTitle('No cards found')
               .setDescription(
                 "The card(s) that you're looking for weren't found"
@@ -95,7 +95,7 @@ module.exports = class GetCardsCommand extends Command {
       }
       default:
         msg.embed(
-          new RichEmbed()
+          new MessageEmbed()
             .setTitle('Invalid type')
             .setDescription('Type is invalid, valid types are `character`')
             .setColor('#f44336')

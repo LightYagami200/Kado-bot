@@ -1,6 +1,6 @@
 //Dependencies
 const { model } = require('mongoose');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const _ = require('lodash');
 
 //Init
@@ -19,7 +19,7 @@ async function getCharacterEmbedByName(name) {
     attStr += `• ${_.upperFirst(attribute)}\n`;
   });
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setTitle(character.name)
     .setDescription(character.description)
     .addField('Attributes', attStr)
@@ -51,7 +51,7 @@ async function getCardPackEmbedByName(name) {
       )}% Off)`;
   else priceStr = String(cardPack.price) + ' Coins';
 
-  const embed = new RichEmbed()
+  const embed = new MessageEmbed()
     .setTitle(cardPack.name)
     .setDescription(cardPack.description)
     .addField('Cards Type', _.capitalize(cardPack.type))

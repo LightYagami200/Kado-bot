@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const gameMasters = require('../../config/gameMasters');
@@ -44,7 +44,7 @@ module.exports = class AddPartnerCommand extends Command {
   async run(msg, { guildID, inviteLink }) {
     if (guildID === '556442896719544320' || guildID === '582529974754476042')
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Can't partner with self")
           .setDescription("Kādo bot can't partner with it's own parent server")
           .setColor('#f44336')
@@ -54,7 +54,7 @@ module.exports = class AddPartnerCommand extends Command {
 
     if (partner)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Already Partnered')
           .setDescription(
             "The server you're trying to partner is already one of the partners"
@@ -64,7 +64,7 @@ module.exports = class AddPartnerCommand extends Command {
 
     if (!this.client.guilds.get(guildID))
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Not in server')
           .setDescription(
             "Kādo bot isn't in the server you're trying to partner with"
@@ -79,7 +79,7 @@ module.exports = class AddPartnerCommand extends Command {
     }).save();
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Partner Added')
         .setDescription(
           `New partner \`${this.client.guilds.get(guildID).name}\` is added`

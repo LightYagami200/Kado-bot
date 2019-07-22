@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const Fuse = require('fuse.js');
@@ -49,7 +49,7 @@ module.exports = class PlayCommand extends Command {
 
     if (!duel)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Not in a duel')
           .setDescription(
             "You can't use this command when you're not in a duel"
@@ -59,7 +59,7 @@ module.exports = class PlayCommand extends Command {
 
     if (duel.currentTurn !== msg.member.id)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Can't play card")
           .setDescription("You can't use this command on someone else's turn")
           .setColor('#f44336')
@@ -67,7 +67,7 @@ module.exports = class PlayCommand extends Command {
 
     if (duel.currentPhase === 'Drawing')
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Can't play card")
           .setDescription("You can't use this command while drawing a card")
           .setColor('#f44336')
@@ -90,7 +90,7 @@ module.exports = class PlayCommand extends Command {
 
       if (results.length > 1)
         return msg.embed(
-          new RichEmbed()
+          new MessageEmbed()
             .setTitle('Be more specific')
             .setDescription('Please be more specific')
             .setColor('#f44336')
@@ -98,7 +98,7 @@ module.exports = class PlayCommand extends Command {
 
       if (results.length === 0)
         return msg.embed(
-          new RichEmbed()
+          new MessageEmbed()
             .setTitle('Card not found in hand')
             .setDescription(
               "The card you're trying to play doesn't exist in your hand"
@@ -136,7 +136,7 @@ module.exports = class PlayCommand extends Command {
 
       //Sending message to notify that a card has been played
       msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle(`Card Played`)
           .setDescription(
             `${msg.guild.members.get(duel.currentTurn).displayName} played **${
@@ -163,7 +163,7 @@ module.exports = class PlayCommand extends Command {
         res.healthMinus;
 
       await msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle(`Damage Dealt!`)
           .setDescription(
             `${msg.guild.members.get(duel.currentTurn).displayName} dealt ${
@@ -196,7 +196,7 @@ module.exports = class PlayCommand extends Command {
       }
     } else if (res.status === 'def') {
       await msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle(`Damage Dealt to Card!`)
           .setDescription(
             `${msg.guild.members.get(duel.currentTurn).displayName} dealt ${
