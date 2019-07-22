@@ -31,7 +31,7 @@ module.exports = class LeaderboardsCommand extends Command {
       new RichEmbed({
         title: 'Guide Contents',
         description:
-          '1) Getting Started\n2) Shop & Cards\n3) Deck & Reserve\n4) Dueling\5) Misc',
+          'Type `$guide page` where page can be one of the following numbers to view respective topic:\n1) Getting Started\n2) Shop & Cards\n3) Deck & Reserve\n4) Dueling\5) Misc',
         color: 0x2196F3
       }),
        new RichEmbed({
