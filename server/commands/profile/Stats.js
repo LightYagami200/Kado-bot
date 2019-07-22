@@ -45,7 +45,7 @@ module.exports = class StatsCommand extends Command {
       );
 
     const profileEmbed = new RichEmbed()
-      .setTitle(`${msg.member.displayName}'s Stats`)
+      .setTitle(`${player.displayName}'s Stats`)
       .setDescription(`${getLeagueName(profile.league)}`)
       .addField(
         'Win/Lose Ratio',
