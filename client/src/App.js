@@ -5,7 +5,8 @@ import {
   Typography,
   createStyles,
   withStyles,
-  Grid
+  Grid,
+  Button
 } from '@material-ui/core';
 import bg from './img/bg.png';
 
@@ -20,12 +21,11 @@ const styles = createStyles({
   container: {
     height: '100vh'
   },
-  inviteMsg: {
+  btns: {
     marginTop: 20
   },
-  inviteLink: {
-    color: 'inherit',
-    textDecoration: 'none'
+  inviteBtn: {
+    marginLeft: 10
   }
 });
 
@@ -49,23 +49,31 @@ class App extends Component {
                 <Typography variant="h5" gutterBottom>
                   Welcome!
                 </Typography>
-                <Typography variant="body2">
-                  It seems you've stumbled upon Kādo Bot but unfortunately, Kādo
-                  Bot is currently under Beta testing and limited to Aldovia
-                  server. But hey! You can just join Aldovia and test out Kādo
-                  Bot right now!
+                <Typography variant="body2" gutterBottom>
+                  Kado Bot is a card collecting/dueling bot that allows players
+                  to collect anime related cards then duel with other players
+                  and climb through the leagues.
                 </Typography>
-                <Typography className={classes.inviteMsg} color="textSecondary">
-                  Cya in Aldovia:{' '}
-                  <b>
-                    <a
-                      className={classes.inviteLink}
-                      href="https://discord.gg/JGsgBsN"
-                    >
-                      https://discord.gg/JGsgBsN
-                    </a>
-                  </b>
+                <Typography color="textSecondary">
+                  Type $guide to view usage and further details
                 </Typography>
+                <Grid item className={classes.btns}>
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    href="https://discordapp.com/api/oauth2/authorize?client_id=582271366619725855&permissions=281664&scope=bot"
+                  >
+                    Invite Bot
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.inviteBtn}
+                    href="https://discord.gg/JGsgBsN"
+                  >
+                    Join Aldovia
+                  </Button>
+                </Grid>
               </CardContent>
             </Card>
           </Grid>
