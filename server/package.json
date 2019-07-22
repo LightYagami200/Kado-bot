@@ -30,6 +30,7 @@
     "connect-redis": "^3.4.1",
     "discord.js": "^11.5.1",
     "discord.js-commando": "^0.10.0",
+    "discord.js-pagination": "^1.0.2",
     "discordjs-prompter": "^1.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
