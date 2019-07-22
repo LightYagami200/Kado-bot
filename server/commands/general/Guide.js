@@ -49,7 +49,7 @@ module.exports = class LeaderboardsCommand extends Command {
        new RichEmbed({
         title: 'Deck & Reserve',
         description:
-          "When you purchase cards, they go in your 'reserve'. And when you're dueling with someone, cards from your 'main' deck are used. To view your reserve, use `reserve` and for main deck, use `main`. Now let's move the cards you purchased to your main deck so you're ready for duels. For that, use `move character \"Character Name\" reserve main`, where Character Name is the name of character you wish to move. As you're moving character from 'reserve' to 'main', thus we used 'reserve main', for moving cards from main deck to reserve, you'd do `move character \"Character Name\" main reserver`. After moving the 3 cards that you purchased to your main deck, you're now ready for DUELS!",
+          "When you purchase cards, they go in your 'reserve'. And when you're dueling with someone, cards from your 'main' deck are used. To view your reserve, use `reserve` and for main deck, use `deck`. Now let's move the cards you purchased to your main deck so you're ready for duels. For that, use `move character \"Character Name\" reserve main`, where Character Name is the name of character you wish to move. As you're moving character from 'reserve' to 'main', thus we used 'reserve main', for moving cards from main deck to reserve, you'd do `move character \"Character Name\" main reserver`. After moving the 3 cards that you purchased to your main deck, you're now ready for DUELS!",
         color: 0x2196F3
       }),
        new RichEmbed({
@@ -61,7 +61,7 @@ module.exports = class LeaderboardsCommand extends Command {
        new RichEmbed({
         title: 'Misc',
         description:
-          "You start off with Level 1, to level up you must earn EXP, you can earn exp by opening card packs and winning competitive duels. And you start off with 50 LP and League 0. To Get more LP, you must win competitive duels. When you duel with someone, winner gets 5% of loser's LP. So if you challenge someone with 0 LP, you should know that you'll get 0 LP even if you win. Following are the leagues:\n0) Unranked (0 - 99 LP)\n1) Copper (100 - 199 LP)\n2) Iron (200 - 299 LP)\n3) Bronze (300 - 399 LP)\n4) Silver (400 - 499 LP)\n5) Gold (500 - 599 LP)\n6) Dark Gold (600 - 699 LP)\n7) Platinum (700 - 799 LP)\n8) Diamond (800 - 899 LP)\n9) Supreme (900 - 999 LP)\n10) Legend (1,000+ LP)\n\nGood Luck Dueler!",
+          "You start off with Level 1, to level up you must earn EXP, you can earn exp by opening card packs and winning competitive duels. And you start off with 50 LP and League 0. To Get more LP, you must win competitive duels. When you duel with someone, winner gets 5% of loser's LP. So if you challenge someone with 0 LP, you should know that you'll get 0 LP even if you win. Following are the leagues:\n0) Unranked (0 - 99 LP)\n1) Copper (100 - 199 LP)\n2) Iron (200 - 299 LP)\n3) Bronze (300 - 399 LP)\n4) Silver (400 - 499 LP)\n5) Gold (500 - 599 LP)\n6) Dark Gold (600 - 699 LP)\n7) Platinum (700 - 799 LP)\n8) Diamond (800 - 899 LP)\n9) Supreme (900 - 999 LP)\n10) Legend (1,000+ LP)\n\nIf you have any further questions or suggestions, feel free to shoot us an email at support@kadobot.xyz\n\nGood Luck Dueler!",
         color: 0x2196F3
       })
     ];
