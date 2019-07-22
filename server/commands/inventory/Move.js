@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const redis = require('redis');
@@ -62,7 +62,7 @@ module.exports = class MoveCommand extends Command {
 
     if (!deck)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -73,7 +73,7 @@ module.exports = class MoveCommand extends Command {
     const res = await client.existsAsync(`duelers:${msg.author.id}`);
     if (res != 0)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('In duel!')
           .setDescription(
             "You can't use this commmand while in the middle of a duel"
@@ -87,7 +87,7 @@ module.exports = class MoveCommand extends Command {
 
     if (!card)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Invalid type/name')
           .setDescription(
             "Either the type you entered is invalid or the card doesn't exist"
@@ -100,7 +100,7 @@ module.exports = class MoveCommand extends Command {
       !_.includes(deck.mainDeck.map(card => card.cardName), name)
     )
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("You don't own this card")
           .setDescription(
             "The card you're trying to move doesn't exist in your inventory"
@@ -117,7 +117,7 @@ module.exports = class MoveCommand extends Command {
 
       if (!res)
         return msg.embed(
-          new MessageEmbed()
+          new RichEmbed()
             .setTitle('Not enough space')
             .setDescription(
               'Your main deck has reached its max limit, level up to increase the size of your main deck'
@@ -127,7 +127,7 @@ module.exports = class MoveCommand extends Command {
 
       if (res == 3)
         return msg.embed(
-          new MessageEmbed()
+          new RichEmbed()
             .setTitle('Card not available')
             .setDescription(
               `The card you're trying to move from \`${from}\` doesn't exist in your \`${from}\``
@@ -136,7 +136,7 @@ module.exports = class MoveCommand extends Command {
         );
 
       msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Successfully moved')
           .setDescription(
             `Card successfully move from \`${from}\` to \`${to}\``
@@ -145,7 +145,7 @@ module.exports = class MoveCommand extends Command {
       );
     } else {
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Invalid input')
           .setDescription('Invalid `to` or `from` args')
           .setColor('#f44336')

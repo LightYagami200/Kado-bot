@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 
 //Init
@@ -27,7 +27,7 @@ module.exports = class CheckInCommand extends Command {
 
     if (!profile)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -39,7 +39,7 @@ module.exports = class CheckInCommand extends Command {
 
     if (!res)
       msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Already Checked In')
           .setDescription(
             'You have already checked in today, come back tommorow'
@@ -48,7 +48,7 @@ module.exports = class CheckInCommand extends Command {
       );
     else
       msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Checked In')
           .setDescription(res)
           .setColor('#2196f3')

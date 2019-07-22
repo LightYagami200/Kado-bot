@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const gameMasters = require('../../config/gameMasters');
@@ -59,7 +59,7 @@ module.exports = class BlacklistCommand extends Command {
       partner
     )
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Can't blacklist core servers/GMs/partners")
           .setDescription(
             "The guild/user you're trying to blacklist can't be blacklisted"
@@ -75,7 +75,7 @@ module.exports = class BlacklistCommand extends Command {
 
     if (blackListed)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Already blacklisted')
           .setDescription(
             "The guild/user you're trying to blacklist is already blacklisted"
@@ -98,7 +98,7 @@ module.exports = class BlacklistCommand extends Command {
     }
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Blacklisted')
         .setDescription('Guild/User blacklisted')
         .setColor('#2196f3')

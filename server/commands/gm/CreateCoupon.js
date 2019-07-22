@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const randomstring = require('randomstring');
@@ -64,7 +64,7 @@ module.exports = class CreateCouponCommand extends Command {
 
     if (existingCoupon)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Coupon with this code already exists')
           .setDescription(
             "The code you're trying to use is already in use by another coupon"
@@ -105,7 +105,7 @@ module.exports = class CreateCouponCommand extends Command {
       }\n`;
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Coupon code(s) generated')
         .setDescription(`Coupon(s):\n${codes}`)
         .setColor('#2196f3')

@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const Fuse = require('fuse.js');
 const { getCharacterEmbedByName } = require('../../helpers/cards');
@@ -47,7 +47,7 @@ module.exports = class PurchaseCommand extends Command {
 
     if (!profile)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -58,7 +58,7 @@ module.exports = class PurchaseCommand extends Command {
     const res = await client.existsAsync(`duelers:${msg.author.id}`);
     if (res != 0)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('In duel!')
           .setDescription(
             "You can't use this commmand while in the middle of a duel"
@@ -75,7 +75,7 @@ module.exports = class PurchaseCommand extends Command {
 
     if (results.length > 1)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Be more specific')
           .setDescription('Please be more specific')
           .setColor('#f44336')
@@ -83,7 +83,7 @@ module.exports = class PurchaseCommand extends Command {
 
     if (results.length === 0)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('No Card Pack Found')
           .setDescription('No card pack was found, double check your spellings')
           .setColor('#f44336')
@@ -95,14 +95,14 @@ module.exports = class PurchaseCommand extends Command {
 
     if (response.res === 'err')
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle(response.title)
           .setDescription(response.desc)
           .setColor('#f44336')
       );
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Opening Pack')
         .setDescription('Card pack is being opened...')
         .setColor('#2196f3')

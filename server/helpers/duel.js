@@ -2,7 +2,7 @@
 const redis = require('redis');
 const bluebird = require('bluebird');
 const mongoose = require('mongoose');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const prompt = require('discordjs-prompter');
 const _ = require('lodash');
 const { getCharacterEmbedByName } = require('../helpers/cards');
@@ -95,7 +95,7 @@ async function nextTurn(msg, timeEnded = false, firstTurn = false) {
 
   //If time ran out
   if (timeEnded)
-    msg.embed(new MessageEmbed().setTitle('Time Ran Out').setColor('#f44336'));
+    msg.embed(new RichEmbed().setTitle('Time Ran Out').setColor('#f44336'));
 
   //If this is not the first turn
   if (!firstTurn) {
@@ -106,7 +106,7 @@ async function nextTurn(msg, timeEnded = false, firstTurn = false) {
 
   //Send a message to notify that next turn has started
   await msg.embed(
-    new MessageEmbed()
+    new RichEmbed()
       .setTitle('Turn Begins')
       .setDescription(
         `Current Turn: ${msg.guild.members.get(duel.currentTurn)}`
@@ -126,7 +126,7 @@ async function nextTurn(msg, timeEnded = false, firstTurn = false) {
   ) {
     duel[`player${duel.player1ID === msg.member.id ? '2' : '1'}Health`] -= 100;
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle(
           "You lose 100 HP as you don't have any more cards left in your deck"
         )
@@ -180,7 +180,7 @@ async function nextTurn(msg, timeEnded = false, firstTurn = false) {
 
       //Sending a message to notify that a card was drawn
       msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Card Drawn')
           .setDescription(
             `A card was drawn by ${
@@ -201,7 +201,7 @@ async function endDuel(msg, timeEnded = false) {
   //If time ran out
   if (timeEnded)
     msg.embed(
-      new MessageEmbed().setTitle('Duel Time ran out').setColor('#f44336')
+      new RichEmbed().setTitle('Duel Time ran out').setColor('#f44336')
     );
 
   //Get duel document
@@ -263,7 +263,7 @@ async function endDuel(msg, timeEnded = false) {
 
   //Sending Embed
   msg.embed(
-    new MessageEmbed()
+    new RichEmbed()
       .setTitle(`Duel Ended`)
       .setDescription(
         `${

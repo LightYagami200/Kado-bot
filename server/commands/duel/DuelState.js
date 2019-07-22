@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 
 //Init
@@ -32,7 +32,7 @@ module.exports = class DuelStateCommand extends Command {
 
     if (!duel)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Not in a duel')
           .setDescription(
             "You can't use this command when you're not in a duel"
@@ -42,7 +42,7 @@ module.exports = class DuelStateCommand extends Command {
 
     if (duel.currentTurn !== msg.member.id)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Can't view duel state")
           .setDescription("You can't use this command on someone else's turn")
           .setColor('#f44336')
@@ -50,14 +50,14 @@ module.exports = class DuelStateCommand extends Command {
 
     if (duel.currentPhase === 'Drawing')
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Can't view duel state")
           .setDescription("You can't use this command while drawing a card")
           .setColor('#f44336')
       );
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Duel Stats')
         .addField(
           'Health',

@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const { getLeagueName } = require('../../helpers/league');
 
@@ -36,7 +36,7 @@ module.exports = class StatsCommand extends Command {
 
     if (!profile)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -44,7 +44,7 @@ module.exports = class StatsCommand extends Command {
           .setColor('#f44336')
       );
 
-    const profileEmbed = new MessageEmbed()
+    const profileEmbed = new RichEmbed()
       .setTitle(`${player.displayName}'s Stats`)
       .setDescription(`${getLeagueName(profile.league)}`)
       .addField(

@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
@@ -30,7 +30,7 @@ module.exports = class RegisterCommand extends Command {
       process.env.NODE_ENV === 'production'
     )
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Cannot register profile')
           .setDescription(
             'Game masters cannot register profile outside of dev server'
@@ -40,7 +40,7 @@ module.exports = class RegisterCommand extends Command {
 
     if (profile)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Profile already registered')
           .setDescription(
             'Your profile is already registered, use `profile` command to view your profile'
@@ -70,7 +70,7 @@ module.exports = class RegisterCommand extends Command {
     }).save();
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Profile registered')
         .setDescription(
           'Your profile has been registered, use `profile` command to view your profile'

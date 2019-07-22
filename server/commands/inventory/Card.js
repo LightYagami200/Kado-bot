@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const { getCharacterEmbedByName } = require('../../helpers/cards');
@@ -41,7 +41,7 @@ module.exports = class CardCommand extends Command {
 
     if (!deck)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -55,7 +55,7 @@ module.exports = class CardCommand extends Command {
 
     if (!card)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Invalid type/name')
           .setDescription(
             "Either the type you entered is invalid or the card doesn't exist"
@@ -68,7 +68,7 @@ module.exports = class CardCommand extends Command {
       !_.includes(deck.mainDeck.map(card => card.cardName), name)
     )
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("You don't own this card")
           .setDescription(
             "The card you're trying to view doesn't exist in your inventory"

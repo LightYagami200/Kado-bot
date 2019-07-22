@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
@@ -26,7 +26,7 @@ module.exports = class ReserveCommand extends Command {
 
     if (!deck)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -49,13 +49,13 @@ module.exports = class ReserveCommand extends Command {
     });
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Sent in DM')
         .setDescription('Please check your DM')
         .setColor('#2196f3')
     );
     msg.member.send(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Reserve Cards')
         .setDescription(str)
         .setColor('#2196f3')

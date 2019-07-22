@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const redis = require('redis');
 const bluebird = require('bluebird');
@@ -62,7 +62,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (!profile || !opponentProfile)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Your or the person you're trying to challenge doesn't have a profile, use `register` command to register profile"
@@ -72,7 +72,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (msg.member.id === player.id)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Can't challenge yourself")
           .setDescription("You can't challenge yourself")
           .setColor('#f44336')
@@ -80,7 +80,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (profile.coins < amount || opponentProfile.coins < amount)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Not enough coins')
           .setDescription(
             "Your or the person you're trying to challenge doesn't have enough coins"
@@ -94,7 +94,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (deck.mainDeck.length < 3)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Not enough cards in main deck')
           .setDescription(
             'You need at least 3 cards in main deck to duel someone'
@@ -108,7 +108,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (opponentsDeck.mainDeck.length < 3)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Not enough cards in opponents deck')
           .setDescription(
             "The person you're trying to challenge needs to have at least 3 cards in their deck to duel"
@@ -128,7 +128,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (status[0])
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("You're already in a duel")
           .setDescription(
             "You can't challenge someone while you're already in the middle of a duel"
@@ -138,7 +138,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (status[1])
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Already in a duel')
           .setDescription(
             "The person you're trying to challenge is already in the middle of a duel"
@@ -156,7 +156,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (!promptRes)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle(`No response from ${player.displayName}`)
           .setDescription(`There was no response from ${player.displayName}`)
           .setColor('#f44336')
@@ -164,7 +164,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (promptRes === 'no')
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Challenge Denied')
           .setDescription(
             `${msg.member}, your challenge was rejected by ${
@@ -186,7 +186,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (status[0])
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("You're already in a duel")
           .setDescription(
             "You can't challenge someone while you're already in the middle of a duel"
@@ -196,7 +196,7 @@ module.exports = class ChallengeCommand extends Command {
 
     if (status[1])
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Already in a duel')
           .setDescription(
             "The person you're trying to challenge is already in the middle of a duel"
@@ -249,7 +249,7 @@ module.exports = class ChallengeCommand extends Command {
     ]);
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle(`${msg.member.displayName} ⚔️ ${player.displayName}`)
         .setDescription('THE DUEL BEGINS!')
         .addField('Bet Amount', amount > 0 ? amount : 'No bet')

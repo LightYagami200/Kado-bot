@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { MessageEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 
@@ -37,7 +37,7 @@ module.exports = class RedeemCommand extends Command {
 
     if (!profile)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -47,7 +47,7 @@ module.exports = class RedeemCommand extends Command {
 
     if (!coupon)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Invalid Coupon Code')
           .setDescription("There's no coupon with the code you provided")
           .setColor('#f44336')
@@ -55,7 +55,7 @@ module.exports = class RedeemCommand extends Command {
 
     if (_.includes(coupon.usedBy, msg.author.id))
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Already redeemed')
           .setDescription("You've already redeemed this coupon")
           .setColor('#f44336')
@@ -63,7 +63,7 @@ module.exports = class RedeemCommand extends Command {
 
     if (coupon.usedBy.length >= coupon.maxUses)
       return msg.embed(
-        new MessageEmbed()
+        new RichEmbed()
           .setTitle('Used Maximum times')
           .setDescription('This coupon has been used maximum times')
           .setColor('#f44336')
@@ -74,7 +74,7 @@ module.exports = class RedeemCommand extends Command {
     coupon.used(msg.author.id);
 
     msg.embed(
-      new MessageEmbed()
+      new RichEmbed()
         .setTitle('Coupon Redeemed')
         .setDescription(
           `You've redeemed coupon \`${coupon.couponCode}\` and got **${
