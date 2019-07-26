@@ -1,5 +1,8 @@
+const { discordBotsAuth } = require('../config/keys');
+
 module.exports = (app, client) => {
-  app.get('/webhooks', (req, res) => {
-    return res.json({ err: 'Invalid type' });
+  app.post('/webhooks', (req, res) => {
+    console.log(req.headers.authorization);
+    console.log(req.body);
   });
 };
