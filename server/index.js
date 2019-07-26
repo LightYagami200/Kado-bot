@@ -12,8 +12,7 @@ const { CommandoClient } = require('discord.js-commando');
 const redisStore = require('connect-redis')(session);
 const path = require('path');
 const keys = require('./config/keys');
-const DBL = require("dblapi.js");
-new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4MjI3MTM2NjYxOTcyNTg1NSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTY0MTE4ODExfQ.unO685_FvFzPdmLfzf3vOWuU-HmQf26X9TNU99adb2w', client);
+const DBL = require('dblapi.js');
 //==========================
 
 //==========================
@@ -126,7 +125,11 @@ mongoose
     client.dispatcher.addInhibitor(msg =>
       require('./inhibitors/isUserBlacklisted')(msg.author.id)
     );
-
+    //-> Connecting to Discordbots.org
+    new DBL(
+      'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4MjI3MTM2NjYxOTcyNTg1NSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTY0MTE4ODExfQ.unO685_FvFzPdmLfzf3vOWuU-HmQf26X9TNU99adb2w',
+      client
+    );
     //->When Ready
     client.on('ready', () =>
       client.user.setActivity('with Cards | $help', { type: 'PLAYING' })
