@@ -12,6 +12,8 @@ const { CommandoClient } = require('discord.js-commando');
 const redisStore = require('connect-redis')(session);
 const path = require('path');
 const keys = require('./config/keys');
+const DBL = require("dblapi.js");
+new DBL('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjU4MjI3MTM2NjYxOTcyNTg1NSIsImJvdCI6dHJ1ZSwiaWF0IjoxNTY0MTE4ODExfQ.unO685_FvFzPdmLfzf3vOWuU-HmQf26X9TNU99adb2w', client);
 //==========================
 
 //==========================
