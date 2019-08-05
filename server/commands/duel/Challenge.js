@@ -7,6 +7,8 @@ const bluebird = require('bluebird');
 const prompter = require('discordjs-prompter');
 const uniqid = require('uniqid');
 const { nextTurn, endDuel } = require('../../helpers/duel');
+const { getCharacterEmbedByName } = require('../../helpers/cards');
+const _ = require('lodash');
 
 //Init
 const Profile = mongoose.model('Profile');
@@ -247,6 +249,33 @@ module.exports = class ChallengeCommand extends Command {
         currentTurnTimeLeft: 60
       })
     ]);
+
+    //Get duel
+    const duel = await Duel.findOne({ duelID }).exec();
+
+    //Adding 3 random cards to each players hands
+    for (let num = 1; num <= 2; num++)
+      for (let i = 1; i <= 3; i++) {
+        //Selecting a random card from deck
+        const randomCard = _.sample(duel[`player${num}Deck`]);
+
+        //Removing card from deck
+        const index = _.findIndex(duel[`player${num}Deck`], card => {
+          return card.cardName === randomCard.cardName;
+        });
+
+        duel[`player${num}Deck`].splice(index, 1);
+
+        //Adding card to hand
+        duel[`player${num}Hand`].push(randomCard);
+
+        //Sending drawn card in DM
+        msg.guild.members
+          .get(duel[`player${num}ID`])
+          .send(await getCharacterEmbedByName(randomCard.cardName));
+      }
+
+    await duel.save();
 
     msg.embed(
       new RichEmbed()
