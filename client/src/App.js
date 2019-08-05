@@ -26,6 +26,12 @@ const styles = createStyles({
   },
   inviteBtn: {
     marginLeft: 10
+  },
+  widget: {
+    position: 'fixed',
+    bottom: 10,
+    left: '50%',
+    transform: 'translateX(-50%)'
   }
 });
 
@@ -39,7 +45,7 @@ class App extends Component {
           container
           spacing={3}
           direction="column"
-          justify="flex-end"
+          justify="center"
           alignItems="center"
           className={classes.container}
         >
@@ -77,16 +83,17 @@ class App extends Component {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={10} md={6} lg={4}>
-            <a href="https://discordbotlist.com/bots/582271366619725855">
-              <img
-                width="380"
-                height="140"
-                src="https://discordbotlist.com/bots/582271366619725855/widget"
-                alt="Kado stats on Discord Bot List"
-              />
-            </a>
-          </Grid>
+          <a
+            href="https://discordbotlist.com/bots/582271366619725855"
+            className={classes.widget}
+          >
+            <img
+              width="380"
+              height="140"
+              src="https://discordbotlist.com/bots/582271366619725855/widget"
+              alt="Kado stats on Discord Bot List"
+            />
+          </a>
         </Grid>
       </div>
     );
