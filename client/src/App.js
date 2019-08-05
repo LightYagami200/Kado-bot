@@ -8,7 +8,7 @@ import {
   Grid,
   Button
 } from '@material-ui/core';
-import bg from './img/bg.png';
+import bg from './img/bg.jpg';
 
 const styles = createStyles({
   app: {
@@ -39,7 +39,7 @@ class App extends Component {
           container
           spacing={3}
           direction="row"
-          justify="center"
+          justify="flex-end"
           alignItems="center"
           className={classes.container}
         >
@@ -76,6 +76,16 @@ class App extends Component {
                 </Grid>
               </CardContent>
             </Card>
+          </Grid>
+          <Grid item xs={10} md={6} lg={4}>
+            <a href="https://discordbotlist.com/bots/582271366619725855">
+              <img
+                width="380"
+                height="140"
+                src="https://discordbotlist.com/bots/582271366619725855/widget"
+                alt="Kado stats on Discord Bot List"
+              />
+            </a>
           </Grid>
         </Grid>
       </div>
