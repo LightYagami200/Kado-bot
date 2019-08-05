@@ -38,7 +38,7 @@ class App extends Component {
         <Grid
           container
           spacing={3}
-          direction="row"
+          direction="column"
           justify="flex-end"
           alignItems="center"
           className={classes.container}
