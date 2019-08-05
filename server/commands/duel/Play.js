@@ -82,7 +82,7 @@ module.exports = class PlayCommand extends Command {
       //Configuring Search
       const fuse = new Fuse(
         duel.player1ID === msg.member.id ? duel.player1Hand : duel.player2Hand,
-        { keys: ['cardName'], threshold: 0.4 }
+        { keys: ['cardName'], threshold: 0.2 }
       );
 
       //Searching
