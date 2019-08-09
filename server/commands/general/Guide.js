@@ -43,7 +43,7 @@ module.exports = class LeaderboardsCommand extends Command {
       new RichEmbed({
         title: 'Shop & Cards',
         description:
-          'Cards are the core element of Kado bot, to collect cards you have to open card packs. There are 5 tiers of cards:\n-> Common Cards\n-> Uncommon Cards\n-> Rare Cards\n-> Epic Cards\n-> Legendary Cards\n\nYou can purchase different card packs from shop which contain different tiers of cards. To view available card packs for purchase, use `shop`. To purchase a card pack, use `purchase <pack name>`. To purchase your first card pack, type `purchase "Basic Characters Pack"`. Now that you have few card packs, you\'ll learn how to manage your deck in next section.',
+          'Cards are the core element of Kado bot, to collect cards you have to open card packs. There are 5 tiers of cards:\n> Common Cards\n> Uncommon Cards\n> Rare Cards\n> Epic Cards\n> Legendary Cards\n\nYou can purchase different card packs from shop which contain different tiers of cards. To view available card packs for purchase, use `shop`. To purchase a card pack, use `purchase <pack name>`. To purchase your first card pack, type `purchase "Basic Characters Pack"`. Now that you have few card packs, you\'ll learn how to manage your deck in next section.',
         color: 0x2196f3
       }),
       new RichEmbed({
