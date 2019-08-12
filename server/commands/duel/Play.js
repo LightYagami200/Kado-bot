@@ -88,14 +88,6 @@ module.exports = class PlayCommand extends Command {
       //Searching
       const results = fuse.search(cardName);
 
-      if (results.length > 1)
-        return msg.embed(
-          new RichEmbed()
-            .setTitle('Be more specific')
-            .setDescription('Please be more specific')
-            .setColor('#f44336')
-        );
-
       if (results.length === 0)
         return msg.embed(
           new RichEmbed()
