@@ -28,32 +28,64 @@ function dealDamage(offensiveCard, defensiveCard) {
   offAttrs.forEach(offAttr => {
     defAttrs.forEach(defAttr => {
       //Offensive Multipliers
+      //-> Elemental Attributes
       if (offAttr === 'water' && defAttr === 'fire') offenseMultiplier += 0.5;
-      if (offAttr === 'fire' && defAttr === 'earth') offenseMultiplier += 0.2;
-      if (offAttr === 'electric' && defAttr === 'water')
-        offenseMultiplier += 0.5;
+      if (offAttr === 'fire' && defAttr === 'air') offenseMultiplier += 0.5;
+      if (offAttr === 'air' && defAttr === 'earth') offenseMultiplier += 0.5;
       if (offAttr === 'earth' && defAttr === 'electric')
         offenseMultiplier += 0.5;
+      if (offAttr === 'electric' && defAttr === 'water')
+        offenseMultiplier += 0.5;
+      if (
+        offAttr === 'neutral' &&
+        _.includes(['water', 'fire', 'air', 'earth', 'electric'], defAttr)
+      )
+        offenseMultiplier += 0.5;
+      if (
+        _.includes(['water', 'fire', 'air', 'earth', 'electric'], offAttr) &&
+        defAttr === 'neutral'
+      )
+        offenseMultiplier += 0.5;
+
+      //-> Misc Attributes
       if (offAttr === 'intelligent' && defAttr === 'dumb')
-        offenseMultiplier += 2;
-      if (offAttr === 'celestial' && defAttr === 'undead')
         offenseMultiplier += 1;
       if (offAttr === 'brave' && defAttr === 'coward') offenseMultiplier += 1;
+
+      //-> Lifeform Attributes
+      if (offAttr === 'celestial' && defAttr === 'undead')
+        offenseMultiplier += 0.5;
       if (offAttr === 'undead' && defAttr === 'mortal')
+        offenseMultiplier += 0.5;
+      if (offAttr === 'mortal' && defAttr === 'godslayer')
+        offenseMultiplier += 0.5;
+      if (offAttr === 'godslayer' && defAttr === 'celestial')
         offenseMultiplier += 0.5;
 
       //Defensive Multipliers
+      //-> Elemental Attributes
       if (offAttr === 'water' && defAttr === 'electric')
         defenseMultiplier += 0.5;
-      if (offAttr === 'fire' && defAttr === 'water') defenseMultiplier += 0.5;
       if (offAttr === 'electric' && defAttr === 'earth')
         defenseMultiplier += 0.5;
-      if (offAttr === 'earth' && defAttr === 'fire') defenseMultiplier += 0.2;
+      if (offAttr === 'earth' && defAttr === 'air') defenseMultiplier += 0.5;
+      if (offAttr === 'air' && defAttr === 'fire') defenseMultiplier += 0.5;
+      if (offAttr === 'fire' && defAttr === 'water') defenseMultiplier += 0.5;
+
+      //-> Misc Attributes
       if (offAttr === 'dumb' && defAttr === 'intelligent')
-        defenseMultiplier += 3;
-      if (offAttr === 'undead' && defAttr === 'celestial')
-        defenseMultiplier += 2;
+        defenseMultiplier += 1;
       if (offAttr === 'coward' && defAttr === 'brave') defenseMultiplier += 1;
+
+      //-> Lifeform Attributes
+      if (offAttr === 'undead' && defAttr === 'celestial')
+        defenseMultiplier += 0.5;
+      if (offAttr === 'celestial' && defAttr === 'godslayer')
+        defenseMultiplier += 0.5;
+      if (offAttr === 'godslayer' && defAttr === 'mortal')
+        defenseMultiplier += 0.5;
+      if (offAttr === 'mortal' && defAttr === 'undead')
+        defenseMultiplier += 0.5;
     });
   });
 
