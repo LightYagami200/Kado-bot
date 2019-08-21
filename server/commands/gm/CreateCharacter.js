@@ -19,7 +19,10 @@ module.exports = class CreateCharacterCommand extends Command {
       group: 'gm',
       memberName: 'createcharacter',
       description: 'Create a new Character card',
-      examples: ['createCharacter'],
+      examples: [
+        'createCharacter',
+        'createCharacter "Some character" "Some random description" "https://imgur.com/loremipsum" 2 500 600 "dumb, electricity, brave" 150'
+      ],
       args: [
         {
           key: 'name',
