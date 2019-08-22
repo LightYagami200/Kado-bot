@@ -37,13 +37,13 @@ function dealDamage(offensiveCard, defensiveCard) {
       if (offAttr === 'electric' && defAttr === 'water')
         offenseMultiplier += 0.5;
       if (
-        offAttr === 'neutral' &&
+        !_.includes(['water', 'fire', 'air', 'earth', 'electric'], offAttr) &&
         _.includes(['water', 'fire', 'air', 'earth', 'electric'], defAttr)
       )
         offenseMultiplier += 0.5;
       if (
         _.includes(['water', 'fire', 'air', 'earth', 'electric'], offAttr) &&
-        defAttr === 'neutral'
+        !_.includes(['water', 'fire', 'air', 'earth', 'electric'], defAttr)
       )
         offenseMultiplier += 0.5;
 
