@@ -21,23 +21,12 @@ module.exports = class CreateCharacterCommand extends Command {
       description: 'Create a new Character card',
       examples: [
         'createCharacter',
-        'createCharacter "Some character" "Some random description" "https://imgur.com/loremipsum" 2 500 600 "dumb, electricity, brave" 150'
+        'createCharacter "Some character" 2 500 600 "intelligent electric brave" 150 "https://imgur.com/loremipsum" "Some random description"'
       ],
       args: [
         {
           key: 'name',
           prompt: 'What should be the name of character?',
-          type: 'string'
-        },
-        {
-          key: 'description',
-          prompt: 'Describe the character in less than 240 characters',
-          type: 'string',
-          max: 240
-        },
-        {
-          key: 'pictureUrl',
-          prompt: 'Provide URL to the picture of this character',
           type: 'string'
         },
         {
@@ -60,7 +49,7 @@ module.exports = class CreateCharacterCommand extends Command {
         {
           key: 'attributes',
           prompt:
-            'What should be the attributes of this character? (comma seperated list)',
+            'What should be the attributes of this character? (space seperated list)',
           type: 'string'
         },
         {
@@ -70,6 +59,17 @@ module.exports = class CreateCharacterCommand extends Command {
           type: 'integer',
           min: 1,
           max: 1000
+        },
+        {
+          key: 'pictureUrl',
+          prompt: 'Provide URL to the picture of this character',
+          type: 'string'
+        },
+        {
+          key: 'description',
+          prompt: 'Describe the character in less than 240 characters',
+          type: 'string',
+          max: 240
         }
       ]
     });
@@ -83,7 +83,7 @@ module.exports = class CreateCharacterCommand extends Command {
 
   async run(
     msg,
-    { name, description, pictureUrl, tier, attack, defense, attributes, stock }
+    { name, tier, attack, defense, attributes, stock, pictureUrl, description }
   ) {
     const existingCharacter = await Character.findOne({ name }).exec();
 
@@ -104,7 +104,7 @@ module.exports = class CreateCharacterCommand extends Command {
       tier,
       attack,
       defense,
-      attributes: attributes.split(',').map(item => _.lowerCase(item.trim())),
+      attributes: attributes.split(' ').map(item => _.lowerCase(item.trim())),
       stock: tier <= 2 ? -1 : stock,
       sold: 0
     }).save();
