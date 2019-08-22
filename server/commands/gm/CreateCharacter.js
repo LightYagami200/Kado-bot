@@ -23,6 +23,8 @@ module.exports = class CreateCharacterCommand extends Command {
         'createCharacter',
         'createCharacter "Some character" 2 500 600 "intelligent electric brave" 150 "https://imgur.com/loremipsum" "Some random description"'
       ],
+      details:
+        'Valid attributes:\n> Neutral\n> Fire\n> Water\n> Air\n> Earth\n> Electric\n> Dumb\n> Intelligent\n> Celestial\n> Undead\n> Mortal\n> GodSlayer',
       args: [
         {
           key: 'name',
@@ -50,7 +52,21 @@ module.exports = class CreateCharacterCommand extends Command {
           key: 'attributes',
           prompt:
             'What should be the attributes of this character? (space seperated list)',
-          type: 'string'
+          type: 'string',
+          oneOf: [
+            'neutral',
+            'fire',
+            'water',
+            'air',
+            'earth',
+            'electric',
+            'dumb',
+            'intelligent',
+            'celestial',
+            'undead',
+            'mortal',
+            'godslayer'
+          ]
         },
         {
           key: 'stock',
