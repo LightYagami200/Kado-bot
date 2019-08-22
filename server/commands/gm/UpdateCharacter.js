@@ -71,7 +71,9 @@ module.exports = class UpdateCharacterCommand extends Command {
           .setColor('#2196f3')
       );
 
-    character[key] = value;
+    if (key === 'attributes')
+      character[key] = value.split(' ').map(item => _.lowerCase(item.trim()));
+    else character[key] = value;
 
     await character.save();
 
