@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 //Main
 module.exports = class LeaderboardsCommand extends Command {
@@ -18,12 +18,12 @@ module.exports = class LeaderboardsCommand extends Command {
 
   async run(msg) {
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('About Kādo Bot')
         .setDescription(
-          "Kādo bot is an Anime card collecting/dueling bot, to invite it to your server, use this link: \n\nhttps://discordapp.com/api/oauth2/authorize?client_id=582271366619725855&permissions=280640&scope=bot\n\nVersion 0.2.2 changelog\n> Fixed bug where players can't play a card when they've got multiple cards of same name\n\n0.2.1 changelog:\n> Fixed critical bug\n> Fixed guide & about formatting\n\nVersion 0.2 changelog:\n> Added long awaited Trading feature\n> Players get 3 cards at the start of the duel (from their main deck) to give more choice to players\n> Added this command (about)\n> Bug fixes"
+          'Kādo bot is an Anime card collecting/dueling bot, to invite it to your server, use this link: \n\nhttps://discordapp.com/api/oauth2/authorize?client_id=582271366619725855&permissions=280640&scope=bot\n\nVersion 0.3 Changelog\n> Completely revamped attributes\n> Redesigned move command to make it user-friendly (dw tho, old command is still here but renamed to moveOld)\n> Major performance improvements\n> Fixed bugs'
         )
-        .setFooter('Version: 0.2.2')
+        .setFooter('Version: 0.3')
         .setColor('#2196f3')
     );
   }
