@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 
 //Init
@@ -32,7 +32,7 @@ module.exports = class HandCommand extends Command {
 
     if (!duel)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Not in a duel')
           .setDescription(
             "You can't use this command when you're not in a duel"
@@ -42,7 +42,7 @@ module.exports = class HandCommand extends Command {
 
     if (duel.currentTurn !== msg.member.id)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Can't view hand")
           .setDescription("You can't use this command on someone else's turn")
           .setColor('#f44336')
@@ -50,7 +50,7 @@ module.exports = class HandCommand extends Command {
 
     if (duel.currentPhase === 'Drawing')
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Can't view hand")
           .setDescription("You can't use this command while drawing a card")
           .setColor('#f44336')
@@ -68,14 +68,14 @@ module.exports = class HandCommand extends Command {
     else handStr = 'Empty hand';
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Sent in DM')
         .setDescription('Please check your DM')
         .setColor('#2196f3')
     );
 
     msg.member.send(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Current Hand')
         .setDescription(handStr)
         .setColor('#2196f3')

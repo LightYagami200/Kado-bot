@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const prompt = require('discordjs-prompter');
 const _ = require('lodash');
@@ -70,7 +70,7 @@ module.exports = class LeaderboardsCommand extends Command {
 
     if (!profile || !withProfile)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "You or the player you're trying to trade with doesn't have a profile, use `register` to register profile"
@@ -92,7 +92,7 @@ module.exports = class LeaderboardsCommand extends Command {
 
     if (cardToGiveIndex < 0)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Card not found')
           .setDescription(
             "The card you're trying to trade doesn't exist in your reserve"
@@ -102,7 +102,7 @@ module.exports = class LeaderboardsCommand extends Command {
 
     if (cardToGetIndex < 0)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Card not found')
           .setDescription(
             "The card you're trying to get doesn't exist in reserve of the player you're trying to trade with"
@@ -120,7 +120,7 @@ module.exports = class LeaderboardsCommand extends Command {
 
     if (!res || res === 'no')
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Trade rejected')
           .setDescription(`Trade was rejected by ${tradeWith.displayName}`)
           .setColor('#f44336')
@@ -145,7 +145,7 @@ module.exports = class LeaderboardsCommand extends Command {
     await tradeWithDeck.save();
 
     return msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Trade successfull')
         .setDescription('Trade was successfull')
         .setColor('#2196f3')

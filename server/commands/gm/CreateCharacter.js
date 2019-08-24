@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const { getCharacterEmbedByName } = require('../../helpers/cards');
@@ -105,7 +105,7 @@ module.exports = class CreateCharacterCommand extends Command {
 
     if (existingCharacter)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Character already exists')
           .setDescription(
             'The character that you are trying to make already exists'

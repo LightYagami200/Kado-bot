@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 //Init
 
@@ -24,7 +24,7 @@ module.exports = class RedisCommand extends Command {
 
   async run(msg) {
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Servers')
         .setDescription(
           `Kado bot is in **${this.client.guilds.size}** Servers`

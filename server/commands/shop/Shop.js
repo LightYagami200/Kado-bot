@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const { getCardPackEmbedByName } = require('../../helpers/cards');
 
@@ -36,7 +36,7 @@ module.exports = class ShopCommand extends Command {
 
     if (cardPacks.length < 1)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('No card packs...')
           .setDescription('No card packs on this page')
           .setColor('#f44336')

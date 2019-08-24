@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const { getCharacterEmbedByName } = require('../../helpers/cards');
@@ -53,7 +53,7 @@ module.exports = class UpdateCharacterCommand extends Command {
 
     if (!character)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Character not found')
           .setDescription(
             'The character that you are trying to update does not exist'
@@ -63,7 +63,7 @@ module.exports = class UpdateCharacterCommand extends Command {
 
     if (!character[key])
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Invalid Field')
           .setDescription(
             'The field that you are trying to update does not exist'

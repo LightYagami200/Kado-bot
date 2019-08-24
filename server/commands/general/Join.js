@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 
 //Init
@@ -31,7 +31,7 @@ module.exports = class JoinCommand extends Command {
 
     if (!guild)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Guild Not Found')
           .setDescription(
             "The partner you're trying to join doesn't exist. Please double check your spelling and capitalization"
@@ -43,7 +43,7 @@ module.exports = class JoinCommand extends Command {
 
     if (!partner)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('Guild Not Found')
           .setDescription(
             "The partner you're trying to join doesn't exist. Please double check your spelling and capitalization"

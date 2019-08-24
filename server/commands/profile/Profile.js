@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const { getLeagueName } = require('../../helpers/league');
@@ -48,7 +48,7 @@ module.exports = class ProfileCommand extends Command {
       process.env.NODE_ENV === 'production'
     )
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle(`${player ? player.displayName : msg.member.displayName}`)
           .setDescription('Game Master')
           .setColor('#2196f3')
@@ -56,7 +56,7 @@ module.exports = class ProfileCommand extends Command {
 
     if (!profile)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle("Profile doesn't exist")
           .setDescription(
             "Profile doesn't exist, use `register` command to register profile"
@@ -64,7 +64,7 @@ module.exports = class ProfileCommand extends Command {
           .setColor('#f44336')
       );
 
-    const profileEmbed = new RichEmbed()
+    const profileEmbed = new MessageEmbed()
       .setTitle(player ? player.displayName : msg.member.displayName)
       .setDescription(`${getLeagueName(profile.league)}`)
       .addField('Level', `${profile.level}`)

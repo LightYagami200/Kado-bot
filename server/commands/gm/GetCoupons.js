@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const gameMasters = require('../../config/gameMasters');
@@ -68,7 +68,7 @@ module.exports = class GetCardsCommand extends Command {
 
     if (!coupons)
       return msg.embed(
-        new RichEmbed()
+        new MessageEmbed()
           .setTitle('No coupon(s) found')
           .setDescription("The coupon(s) that you're looking for weren't found")
       );
@@ -82,7 +82,7 @@ module.exports = class GetCardsCommand extends Command {
     });
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Coupons')
         .setDescription(couponsStr)
         .setColor('#2196f3')

@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 const _ = require('lodash');
 const gameMasters = require('../../config/gameMasters');
@@ -78,7 +78,7 @@ module.exports = class ViewBlacklistCommand extends Command {
       );
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle(`Blacklisted ${_.capitalize(type)}s`)
         .setDescription(str)
         .setColor('#2196f3')

@@ -1,6 +1,6 @@
 //Dependencies
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const mongoose = require('mongoose');
 
 //Init
@@ -36,14 +36,14 @@ module.exports = class PartnersCommand extends Command {
     });
 
     msg.embed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Check your DM')
         .setDescription('List of partners has been sent to your DM')
         .setColor('#2196f3')
     );
 
     msg.member.sendEmbed(
-      new RichEmbed()
+      new MessageEmbed()
         .setTitle('Partner')
         .setDescription(guidsStr)
         .setFooter('Use "join <server name>" to join a server')
