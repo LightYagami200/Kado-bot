@@ -21,7 +21,7 @@ module.exports = class LeaderboardsCommand extends Command {
       new MessageEmbed()
         .setTitle('About Kādo Bot')
         .setDescription(
-          'Kādo bot is an Anime card collecting/dueling bot, to invite it to your server, use this link: \n\nhttps://discordapp.com/api/oauth2/authorize?client_id=582271366619725855&permissions=280640&scope=bot\n\nVersion 0.3 Changelog\n> Completely revamped attributes\n> Redesigned move command to make it user-friendly (dw tho, old command is still here but renamed to moveOld)\n> Major performance improvements\n> Fixed bugs'
+          'Kādo bot is an Anime card collecting/dueling bot, to invite it to your server, use this link: \n\nhttps://discordapp.com/api/oauth2/authorize?client_id=582271366619725855&permissions=280640&scope=bot\n\nVersion 0.3 Changelog\n> Completely revamped attributes\n> Re-wrote the whole guide (took me whole 2 hours, So I hope it helps you)\n> Redesigned move command to make it user-friendly (dw tho, old command is still here but renamed to moveOld)\n> Major performance improvements\n> Fixed bugs'
         )
         .setFooter('Version: 0.3')
         .setColor('#2196f3')
