@@ -23,7 +23,7 @@ module.exports = class MoveCommand extends Command {
       name: 'moveold',
       aliases: ['mo'],
       group: 'inventory',
-      memberName: 'move',
+      memberName: 'moveold',
       description: 'Move a card among your decks/reserve',
       details:
         'Move a card to and fro main deck and reserve. Use this command in DM to avoid anyone from seeing your decks',
