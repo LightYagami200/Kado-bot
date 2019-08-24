@@ -31,6 +31,7 @@
     "dblapi.js": "^2.3.0",
     "discord.js": "github:discordjs/discord.js",
     "discord.js-commando": "github:discordjs/discord.js-commando",
+    "discord.js-pagination": "^1.0.2",
     "discordjs-prompter": "^1.0.0",
     "express": "^4.17.1",
     "express-session": "^1.16.1",
