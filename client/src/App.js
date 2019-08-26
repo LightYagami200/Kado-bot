@@ -28,7 +28,7 @@ const styles = createStyles({
     marginLeft: 10
   },
   widget: {
-    position: 'fixed',
+    position: 'absolute',
     bottom: 10,
     left: '50%',
     transform: 'translateX(-50%)'
