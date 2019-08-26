@@ -42,7 +42,7 @@ module.exports = class PartnersCommand extends Command {
         .setColor('#2196f3')
     );
 
-    msg.member.sendEmbed(
+    msg.member.send(
       new MessageEmbed()
         .setTitle('Partner')
         .setDescription(guidsStr)
