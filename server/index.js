@@ -122,7 +122,9 @@ mongoose
         ['stats', 'Status Commands (For Bot Owners)']
       ])
       .registerDefaultGroups()
-      .registerDefaultCommands()
+      .registerDefaultCommands({
+        unknownCommand: false
+      })
       .registerCommandsIn(path.join(__dirname, 'commands'));
     //->Adding Inhibitors
     client.dispatcher.addInhibitor(msg =>
