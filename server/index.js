@@ -127,9 +127,9 @@ mongoose
       })
       .registerCommandsIn(path.join(__dirname, 'commands'));
     //->Adding Inhibitors
-    client.dispatcher.addInhibitor(msg =>
-      require('./inhibitors/isGuildBlacklisted')(msg.guild.id)
-    );
+    client.dispatcher.addInhibitor(msg => {
+      if (msg.guild) require('./inhibitors/isGuildBlacklisted')(msg.guild.id);
+    });
     client.dispatcher.addInhibitor(msg =>
       require('./inhibitors/isUserBlacklisted')(msg.author.id)
     );
