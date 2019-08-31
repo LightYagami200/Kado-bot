@@ -129,7 +129,7 @@ module.exports = class LeaderboardsCommand extends Command {
         page15
       ],
       ['⏪', '⏩'],
-      120000
+      300000
     );
   }
 };
