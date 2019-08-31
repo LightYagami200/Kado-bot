@@ -107,7 +107,7 @@ module.exports = client => {
     ) {
       totalCoins += 10;
       resString =
-        "You've earned $ coins, come back tommorow to get $ more coins.\n\nThanks for being a Part of Aldovia!\n\nBe sure to vote Kādo everyday to get 10 coins: http://bit.ly/kadobot\n\nWe've our own subreddit and Patreon now :D\nhttps://reddit.com/r/Aldovia\nhttps://www.patreon.com/bePatron?u=23514174\n\nTake a look at `about` command to get list of new features in this update";
+        "You've earned $ coins, come back tommorow to get $ more coins.\n\nThanks for being a Part of Aldovia!\n\nBe sure to vote Kādo everyday to get 10 coins: http://bit.ly/kadobot\n\nWe've our own subreddit and Patreon now :D\nhttps://reddit.com/r/Aldovia\nhttps://www.patreon.com/bePatron?u=23514174\n\nBe sure to check out some super cool anime music streams here:\nhttps://www.twitch.tv/animeshon_music\n\nTake a look at `about` command to get list of new features in this update";
     }
 
     const partners = await this.model('Partner')
