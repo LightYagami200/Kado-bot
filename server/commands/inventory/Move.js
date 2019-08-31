@@ -72,35 +72,39 @@ module.exports = class MoveCommand extends Command {
 
         let reserveArr = [];
 
-        deck.reserveCards.forEach(card => {
-          if (_.includes(reserveArr.map(c => c[0]), card.cardName))
-            reserveArr[
-              _.findIndex(reserveArr, c => c[0] === card.cardName)
-            ][1]++;
-          else reserveArr.push([card.cardName, 1]);
-        });
+        if (deck.reserveCards.length < 1) {
+          deck.reserveCards.forEach(card => {
+            if (_.includes(reserveArr.map(c => c[0]), card.cardName))
+              reserveArr[
+                _.findIndex(reserveArr, c => c[0] === card.cardName)
+              ][1]++;
+            else reserveArr.push([card.cardName, 1]);
+          });
 
-        reserveArr.forEach((card, i) => {
-          reserveStr += `${i === this.reservePos ? '**' : ''}• ${card[0]} x${
-            card[1]
-          }${i === this.reservePos ? '**' : ''}\n`;
-        });
+          reserveArr.forEach((card, i) => {
+            reserveStr += `${i === this.reservePos ? '**' : ''}• ${card[0]} x${
+              card[1]
+            }${i === this.reservePos ? '**' : ''}\n`;
+          });
+        } else reserveStr = '[Empty]';
 
         let deckStr = '';
 
         let deckArr = [];
 
-        deck.mainDeck.forEach(card => {
-          if (_.includes(deckArr.map(c => c[0]), card.cardName))
-            deckArr[_.findIndex(deckArr, c => c[0] === card.cardName)][1]++;
-          else deckArr.push([card.cardName, 1]);
-        });
+        if (deck.mainDeck.length < 1) {
+          deck.mainDeck.forEach(card => {
+            if (_.includes(deckArr.map(c => c[0]), card.cardName))
+              deckArr[_.findIndex(deckArr, c => c[0] === card.cardName)][1]++;
+            else deckArr.push([card.cardName, 1]);
+          });
 
-        deckArr.forEach((card, i) => {
-          deckStr += `${i === this.deckPos ? '**' : ''}• ${card[0]} x${
-            card[1]
-          }${i === this.deckPos ? '**' : ''}\n`;
-        });
+          deckArr.forEach((card, i) => {
+            deckStr += `${i === this.deckPos ? '**' : ''}• ${card[0]} x${
+              card[1]
+            }${i === this.deckPos ? '**' : ''}\n`;
+          });
+        } else deckStr = '[Empty]';
 
         this.reserveArrLength = reserveArr.length;
         this.deckArrLength = deckArr.length;
@@ -110,7 +114,7 @@ module.exports = class MoveCommand extends Command {
           .setDescription(error || '')
           .addField('⮞ Reserve Cards', reserveStr, true)
           .addField('⮞ Main Deck', deckStr, true)
-          .setFooter('This menu expires in 60s')
+          .setFooter('This menu expires in 2m')
           .setColor('#2196f3');
 
         if (editMsg) editMsg.edit(embed);
@@ -132,7 +136,7 @@ module.exports = class MoveCommand extends Command {
       _.includes(['🔺', '🔻', '⬅', '➡', '🔼', '🔽'], reaction.emoji.name) &&
       user.id === authorMsg.author.id;
 
-    const reactions = msg.createReactionCollector(filter, { time: 60000 });
+    const reactions = msg.createReactionCollector(filter, { time: 120000 });
     reactions.on('collect', async r => {
       const emojiName = r._emoji.name;
 
