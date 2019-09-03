@@ -99,7 +99,8 @@ cardPackSchema.methods.purchase = async function(memberID) {
   //->Return card names
   return {
     res: 'success',
-    cards
+    cards,
+    coins: profile.coins - (this.price - this.price * this.discount)
   };
 
   //->Add Card function
