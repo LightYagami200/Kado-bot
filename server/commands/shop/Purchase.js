@@ -114,5 +114,8 @@ module.exports = class PurchaseCommand extends Command {
           msg.embed(await getCharacterEmbedByName(card.name));
       });
     }, 3000);
+
+    if(response.coins <= 100)
+      return msg.embed(new MessageEmbed().setTitle('Low on Coins?').setDescription(`Top up your coins by supporting kado and (Become a patron)[https://patreon.com/Aldovia]`))
   }
 };
