@@ -25,7 +25,7 @@
   "homepage": "https://github.com/LightYagami200/Kado-bot#readme",
   "dependencies": {
     "bluebird": "^3.5.5",
-    "body-parser": "^1.19.0",
+    "body-parser": "^1.20.1",
     "commando-provider-mongo": "^1.1.1",
     "connect-redis": "^3.4.1",
     "dblapi.js": "^2.3.0",
@@ -33,7 +33,7 @@
     "discord.js-commando": "github:discordjs/discord.js-commando",
     "discord.js-pagination": "^1.0.2",
     "discordjs-prompter": "^1.0.0",
-    "express": "^4.17.1",
+    "express": "^4.18.2",
     "express-session": "^1.16.1",
     "fuse.js": "^3.4.5",
     "lodash": "^4.17.15",
