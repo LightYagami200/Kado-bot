@@ -33,7 +33,7 @@
     "discord.js-commando": "github:discordjs/discord.js-commando",
     "discord.js-pagination": "^1.0.2",
     "discordjs-prompter": "^1.0.0",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-session": "^1.16.1",
     "fuse.js": "^3.4.5",
     "lodash": "^4.17.15",
